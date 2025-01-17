@@ -1247,7 +1247,8 @@ export interface AsyncFetchListValuesResult {
   values: ListItems;
   hasMore?: boolean;
 }
-export type AsyncFetchListValuesFn = (this: ConfigContext | void, search: string | null, offset: number) => Promise<AsyncFetchListValuesResult>;
+/* searchOrValues can be a search string or array of exact values */
+export type AsyncFetchListValuesFn = (this: ConfigContext | void, searchOrValues: string | Array<string | number> | null, offset?: number) => Promise<AsyncFetchListValuesResult>;
 
 
 export interface BasicFieldSettings<V = RuleValue> {
@@ -1281,6 +1282,7 @@ export interface SelectFieldSettings<V = string | number> extends BasicFieldSett
   useLoadMore?: boolean;
   useAsyncSearch?: boolean;
   forceAsyncSearch?: boolean;
+  fetchSelectedValuesOnInit?: boolean;
 }
 export interface MultiSelectFieldSettings<V = string[] | number[]> extends SelectFieldSettings<V> {
 }
@@ -1463,6 +1465,11 @@ export interface LocaleSettings {
     okType?: string;
     cancelText?: string;
   };
+  loadMoreLabel?: string;
+  loadingMoreLabel?: string;
+  typeToSearchLabel?: string;
+  loadingLabel?: string;
+  notFoundLabel?: string;
 }
 
 

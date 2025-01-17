@@ -223,6 +223,11 @@ export default (skin: string) => {
       okType: "danger",
       cancelText: "Cancel"
     },
+    loadMoreLabel: "Load more...",
+    loadingMoreLabel: "Loading more...",
+    typeToSearchLabel: "Type to search",
+    loadingLabel: "Loading...",
+    notFoundLabel: "Not found",
   };
 
   const settings: Settings = {
@@ -579,6 +584,11 @@ export default (skin: string) => {
           orange: "Orange"
         },
         allowCustomValues: true,
+      },
+      mainWidgetProps: {
+        customProps: {
+          tokenSeparators: [","]
+        }
       }
     },
     selecttree: {
@@ -650,6 +660,7 @@ export default (skin: string) => {
       fieldSettings: {
         asyncFetch: simulatedAsyncFetch,
         useAsyncSearch: true,
+        fetchSelectedValuesOnInit: true,
         useLoadMore: true,
         forceAsyncSearch: false,
         allowCustomValues: false
@@ -662,6 +673,7 @@ export default (skin: string) => {
       fieldSettings: {
         asyncFetch: simulatedAsyncFetch,
         useAsyncSearch: true,
+        fetchSelectedValuesOnInit: true,
         useLoadMore: true,
         forceAsyncSearch: false,
         allowCustomValues: false
